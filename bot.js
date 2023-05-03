@@ -65,20 +65,33 @@ const choice = ["今天日期/3的餘數",
 "衣服顏色一樣的星辰數",
 "現場星辰衣服總共有幾種顏色",
 "目前IG限動數量(個人)",
-"骰子出場的時刻!!燈~燈~燈~燈燈~",
+"骰子の出場時刻!!燈~燈~燈~燈燈~",
 "抽得不錯，再抽一次!(´･ω･`)",
 "今天口渴，再來一杯飲料&再抽一次!",
 "還想買拍ㄚ!!渣渣!!乖乖存錢去日本!!",
 "下次一定買!嗯，下次一定...",
-"0張唷(｡･∀･)ﾉﾞ",
 "1張(*^_^*)",
 "2張(｡･∀･)ﾉﾞ",
 "3張(ﾉ*ФωФ)ﾉ",
 "4張(*/ω＼*)",
 "5張_(:з)∠)_"];
+var choiceWeight = [27,27,27,27,27,27,27,27,27,25,25,50,50,250,200,100,50,7];
+function weightedRandom(items, itemsWeight)
+{
+    var totalWeight=eval(itemsWeight.join("+"));
+    var randomArray=[];
+    for(var i=0; i<items.length; i++)
+    {
+        for(var j=0; j<itemsWeight[i]; j++)
+        {
+            randomArray.push(i);
+        }
+    }
+    var randomNumber=Math.floor(Math.random()*totalWeight);
+    return items[randomArray[randomNumber]];
+}
 function Getcha(msg) {
-    var no = Math.floor(Math.random()*choice.length);
-    return msg.channel.send(choice[no]);
+    return msg.channel.send(weightedRandom(choice, choiceWeight));
 }
 
 function Photo(msg, amount){
