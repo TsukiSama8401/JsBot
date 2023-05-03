@@ -1,12 +1,12 @@
 //#region 全域變數
+require('dotenv').config();
 const Discord = require('discord.js');
 const client  = new Discord.Client();
-const auth = require('./JSON/auth.json');
 const prefix = require('./JSON/prefix.json');
 //#endregion
 
 //#region 登入
-client.login(auth.key);
+client.login(process.env.TOKEN);
 
 client.on('ready', ()=>{
     console.log(`Logged in as ${client.user.tag}!`);
