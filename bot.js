@@ -124,6 +124,6 @@ function Photo(msg, amount){
         if(element === '獨照')
             count += 1;
     });
-    return msg.channel.send(count + " :LamyGA: ," + (amount-count) + " :LamyRA:");
+    return msg.channel.send(count + "獨照, " + (amount-count) + "合照");
 }
 
