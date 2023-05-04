@@ -116,6 +116,6 @@ function Photo(msg, amount){
     {
         result.push(weightedRandom(photo, photoWeight));
     }
-    return msg.channel.send(result.toString());
+    return msg.channel.send(result.join(', '));
 }
 
