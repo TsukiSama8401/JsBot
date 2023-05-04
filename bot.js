@@ -38,7 +38,7 @@ client.on('message', msg => {
     if(msg.member.user.bot) return;
 
     try{
-        var tmpPrefix = -1;
+        var tmpPrefix = '-1';
         const prefixED = Object.keys(prefix);
         prefixED.forEach(element => {
             if(msg.content.substring(0,prefix[element].Value.length) === prefix[element].Value){
@@ -104,15 +104,17 @@ function weightedRandom(items, itemsWeight)
     var randomNumber=Math.floor(Math.random()*totalWeight);
     return items[randomArray[randomNumber]];
 }
+
 function Getcha(msg) {
     return msg.channel.send(weightedRandom(choice, choiceWeight));
 }
-const photo = ['獨照', '合照'];
-var photoWeight = [7, 3];
+
 function Photo(msg, amount){
+    const photo = ['獨照', '合照'];
+    var photoWeight = [7, 3];
     console.log(amount);
     var result = [];
-    for(var i=0;i++;i<=amount)
+    for(var i=0; i <= amount; i++)
     {
         var random = weightedRandom(photo, photoWeight);
         console.log(random);
