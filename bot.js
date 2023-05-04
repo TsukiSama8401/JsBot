@@ -117,9 +117,13 @@ function Photo(msg, amount){
     for(var i=0; i < amount; i++)
     {
         var random = weightedRandom(photo, photoWeight);
-        console.log(random);
         result.push(random);
     }
-    return msg.channel.send(result.join(', '));
+    var count = 0;
+    result.filter(function condition(element){
+        if(element === '獨照')
+            count += 1;
+    });
+    return msg.channel.send(count + "獨照, " + (amount-count) + "合照");
 }
 
