@@ -111,9 +111,10 @@ const photo = ['獨照', '合照'];
 var photoWeight = [65, 35];
 function Photo(msg, amount){
     console.log(amount);
-    var result = [];
+    const result = [];
     for(var i=0;i++;i<=amount)
     {
+        console.log(i);
         result.push(weightedRandom(photo, photoWeight));
     }
     return msg.channel.send(result.join(', '));
