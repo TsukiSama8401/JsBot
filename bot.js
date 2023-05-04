@@ -114,7 +114,7 @@ function Photo(msg, amount){
     var photoWeight = [7, 3];
     console.log(amount);
     var result = [];
-    for(var i=0; i <= amount; i++)
+    for(var i=0; i < amount; i++)
     {
         var random = weightedRandom(photo, photoWeight);
         console.log(random);
