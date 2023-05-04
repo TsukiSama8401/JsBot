@@ -108,14 +108,15 @@ function Getcha(msg) {
     return msg.channel.send(weightedRandom(choice, choiceWeight));
 }
 const photo = ['獨照', '合照'];
-var photoWeight = [65, 35];
+var photoWeight = [7, 3];
 function Photo(msg, amount){
     console.log(amount);
-    const result = [];
+    var result = [];
     for(var i=0;i++;i<=amount)
     {
-        console.log(i);
-        result.push(weightedRandom(photo, photoWeight));
+        var random = weightedRandom(photo, photoWeight);
+        console.log(random);
+        result.push(wrandom);
     }
     return msg.channel.send(result.join(', '));
 }
