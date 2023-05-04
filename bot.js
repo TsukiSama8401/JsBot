@@ -3,6 +3,26 @@ require('dotenv').config();
 const Discord = require('discord.js');
 const client  = new Discord.Client();
 const prefix = require('./JSON/prefix.json');
+const choice = ["今天日期/3的餘數",
+"目前上班的星辰數量",
+"今天上班的星辰數量",
+"上次幾張今天就幾張!!",
+"星辰指定(請高抬貴手!!)",
+"衣服顏色一樣的星辰數",
+"現場星辰衣服總共有幾種顏色",
+"目前IG限動數量(個人)",
+"自己推的可愛程度 (0~3張",
+"骰子の出場時刻!!燈~燈~燈~燈燈~",
+"抽得不錯，再抽一次!(´･ω･`)",
+"今天口渴，再來一杯飲料&再抽一次!",
+"表演一次再加一張拍(*´ω`)人(´ω`*)",
+"還想買拍ㄚ!!渣渣!!乖乖存錢去日本!!",
+"下次一定買!嗯，下次一定...",
+"1張(*^_^*)",
+"2張(｡･∀･)ﾉﾞ",
+"3張(ﾉ*ФωФ)ﾉ",
+"4張(*/ω＼*)",
+"5張_(:з)∠)_"];
 //#endregion
 
 //#region 登入
@@ -36,17 +56,29 @@ client.on('message', msg => {
                         case 'ping':
                             msg.channel.send('pong');
                             break;
+
                         case 'roll':
                             msg.channel.send(Math.floor(Math.random()*6));
                             break;
+
                         case '買拍':
                             Getcha(msg);
                             break;
+
                         case '數量':
                             Photo(msg, cmd[1]);
                             break;
+
                         case '機率':
                             msg.channel.send('忘了');
+                            break;
+
+                        case '選項':
+                            msg.channel.send(choice.join(', '));
+                            break;
+                            
+                        case '指令':
+                            msg.channel.send('買拍, 數量(記得加數字), 選項, roll');
                             break;
                     }
                     break;
@@ -57,26 +89,6 @@ client.on('message', msg => {
     }
 });
 //#endregion
-const choice = ["今天日期/3的餘數",
-"目前上班的星辰數量",
-"今天上班的星辰數量",
-"上次幾張今天就幾張!!",
-"星辰指定(請高抬貴手!!)",
-"衣服顏色一樣的星辰數",
-"現場星辰衣服總共有幾種顏色",
-"目前IG限動數量(個人)",
-"自己推的可愛程度 (0~3張",
-"骰子の出場時刻!!燈~燈~燈~燈燈~",
-"抽得不錯，再抽一次!(´･ω･`)",
-"今天口渴，再來一杯飲料&再抽一次!",
-"表演一次再加一張拍",
-"還想買拍ㄚ!!渣渣!!乖乖存錢去日本!!",
-"下次一定買!嗯，下次一定...",
-"1張(*^_^*)",
-"2張(｡･∀･)ﾉﾞ",
-"3張(ﾉ*ФωФ)ﾉ",
-"4張(*/ω＼*)",
-"5張_(:з)∠)_"];
 var choiceWeight = [290,290,290,290,290,290,290,290,290,100,500,100,82,500,500,2500,2000,1000,100,8];
 function weightedRandom(items, itemsWeight)
 {
@@ -95,10 +107,15 @@ function weightedRandom(items, itemsWeight)
 function Getcha(msg) {
     return msg.channel.send(weightedRandom(choice, choiceWeight));
 }
-
+const photo = ['獨照', '合照'];
+var photoWeight = [65, 35];
 function Photo(msg, amount){
-    var single = Math.floor(Math.random()*amount);
     console.log(amount);
-    return msg.channel.send(single+ '獨照,' + (amount-single) + '合照');
+    var result = [];
+    for(var i=0;i++;i<=amount)
+    {
+        result.push(weightedRandom(photo, photoWeight));
+    }
+    return msg.channel.send(result.toString());
 }
 
