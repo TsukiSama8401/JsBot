@@ -22,7 +22,8 @@ const choice = ["今天日期/3的餘數",
 "2張(｡･∀･)ﾉﾞ",
 "3張(ﾉ*ФωФ)ﾉ",
 "4張(*/ω＼*)",
-"5張_(:з)∠)_"];
+"5張_(:з)∠)_",
+"撲克牌一套(☆▽☆)"];
 //#endregion
 
 //#region 登入
@@ -89,7 +90,7 @@ client.on('message', msg => {
     }
 });
 //#endregion
-var choiceWeight = [290,290,290,290,290,290,290,290,290,100,500,100,82,500,500,2500,2000,1000,100,8];
+var choiceWeight = [290,290,290,290,290,290,290,290,290,100,500,100,80,500,500,2500,2000,1000,100,8,2];
 function weightedRandom(items, itemsWeight)
 {
     var totalWeight=eval(itemsWeight.join("+"));
