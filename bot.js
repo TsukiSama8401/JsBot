@@ -87,6 +87,13 @@ client.on('message', msg => {
                             break;
                     }
                     break;
+                case '1':
+                    switch(cmd[0]) {
+                        case '@呱(´･д･)匠#1945':
+                            msg.channel.send('我的屁股很好用!');
+                            break;
+                    }
+                    break;
             }
         }
     }catch(e){
