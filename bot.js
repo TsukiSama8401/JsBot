@@ -81,6 +81,10 @@ client.on('message', msg => {
                         case '指令':
                             msg.channel.send('買拍, 數量(記得加數字), 選項, roll');
                             break;
+                        
+                        case '呱':
+                            msg.channel.send('我的屁股很好用!');
+                            break;
                     }
                     break;
             }
