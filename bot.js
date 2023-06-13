@@ -83,7 +83,7 @@ client.on('message', msg => {
                             break;
                         
                         case '呱':
-                            msg.channel.send('我的屁股很好用!');
+                            msg.channel.send('呱的屁股很好用!');
                             break;
                     }
                     break;
