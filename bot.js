@@ -85,6 +85,9 @@ client.on('message', msg => {
                         case '呱':
                             msg.channel.send('呱的屁股很好用!');
                             break;
+                        case '蝦':
+                            msg.channel.send('皮皮蝦閉閉！');
+                            break;
                     }
                     break;
             }
