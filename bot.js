@@ -58,10 +58,6 @@ client.on('message', msg => {
                             msg.channel.send('pong');
                             break;
 
-                        case 'roll':
-                            msg.channel.send(Math.floor(Math.random()*6));
-                            break;
-
                         case '買拍':
                             Getcha(msg);
                             break;
@@ -79,14 +75,7 @@ client.on('message', msg => {
                             break;
                             
                         case '指令':
-                            msg.channel.send('買拍, 數量(記得加數字), 選項, roll');
-                            break;
-                        
-                        case '呱':
-                            msg.channel.send('呱的屁股很好用!');
-                            break;
-                        case '蝦':
-                            msg.channel.send('皮皮蝦閉閉！');
+                            msg.channel.send('買拍, 數量(記得加數字), 選項');
                             break;
                     }
                     break;
